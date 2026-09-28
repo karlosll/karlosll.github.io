@@ -6,6 +6,11 @@ function readStoredLanguage() {
   }
 }
 
+function t(key) {
+  const lang = document.documentElement.lang || 'es';
+  return translations[lang]?.[key] || translations.es[key] || key;
+}
+
 function setLanguage(language) {
   const lang = translations[language] ? language : 'es';
   const dictionary = translations[lang];
@@ -31,6 +36,11 @@ function setLanguage(language) {
   document.querySelectorAll('[data-i18n-alt]').forEach((element) => {
     const translation = dictionary[element.dataset.i18nAlt];
     if (translation) element.setAttribute('alt', translation);
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+    const translation = dictionary[element.dataset.i18nPlaceholder];
+    if (translation) element.setAttribute('placeholder', translation);
   });
 
   document.querySelectorAll('[data-lang-btn]').forEach((button) => {

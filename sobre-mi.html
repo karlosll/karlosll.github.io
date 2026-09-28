@@ -1,61 +1,157 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Perfil y formación de Carlos Llivisupa, estudiante de Ingeniería de Software.">
-  <meta name="theme-color" content="#090a0c">
-  <title>Sobre mí — Carlos Llivisupa</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Perfil, formación e intereses profesionales de Carlos Llivisupa, estudiante de Ingeniería de Software.">
+  <meta name="theme-color" content="#0a0f1c">
+  <title>Sobre mí · Carlos Llivisupa</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme || systemTheme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header"><nav class="container nav-wrap" aria-label="Navegación principal">
-    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">CL</span><span>Carlos Llivisupa</span></a>
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <ul class="nav-links" id="nav-menu"><li><a href="index.html">Inicio</a></li><li><a href="sobre-mi.html" aria-current="page">Sobre mí</a></li><li><a href="habilidades.html">Habilidades</a></li><li><a href="proyectos.html">Proyectos</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  </nav></header>
+<body data-title-key="meta.title.about" data-description-key="meta.description.about">
+  <a class="skip-link" href="#contenido" data-i18n="nav.skip">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Carlos Llivisupa">
+        <span class="brand__mark" aria-hidden="true">CL</span>
+        <span>Carlos Llivisupa</span>
+      </a>
+
+      <nav id="nav-links" class="nav" aria-label="Navegación principal" data-i18n-aria="nav.aria">
+        <ul class="nav__list">
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="sobre-mi.html" aria-current="page" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="habilidades.html" data-i18n="nav.skills">Habilidades</a></li>
+          <li><a href="proyectos.html" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="design-system.html" data-i18n="nav.design">Design System</a></li>
+          <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="nav.languages">
+          <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" id="theme-toggle" class="icon-btn" aria-label="Cambiar tema claro u oscuro" aria-pressed="true" data-i18n-aria="nav.theme">
+          <svg class="theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"/></svg>
+          <svg class="theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button type="button" id="menu-btn" class="icon-btn menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú" data-i18n-aria="nav.menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
   <main id="contenido">
-    <section class="container page-intro reveal">
-      <p class="eyebrow">Perfil personal</p>
-      <h1>Sobre mí.</h1>
-      <p class="lede">Curiosidad técnica, aprendizaje constante y compromiso con productos que funcionen en el mundo real.</p>
+    <section class="container page-intro about-hero" aria-labelledby="about-title">
+      <div class="about-hero__copy reveal">
+        <p class="section-label" data-i18n="about.pageLabel">Perfil personal</p>
+        <h1 id="about-title" data-i18n="about.pageTitle">Sobre mí.</h1>
+        <p data-i18n="about.pageLead">Curiosidad técnica, aprendizaje constante y compromiso con productos que funcionen en el mundo real.</p>
+      </div>
+      <figure class="about-portrait reveal">
+        <img src="Foto%20de%20Perfil.jpg" width="864" height="1195" loading="eager" fetchpriority="high" alt="Retrato profesional de Carlos Llivisupa" data-i18n-alt="about.photoAlt">
+        <figcaption data-i18n="about.photoCaption">Carlos Llivisupa · Ingeniería de Software</figcaption>
+      </figure>
     </section>
 
-    <section class="section">
-      <div class="container split-content">
-        <div class="sticky-label reveal">
-          <p class="section-kicker">01 / Historia</p>
-        </div>
-        <div class="content-prose reveal">
-          <p>Soy estudiante de <strong>8.º semestre de Ingeniería de Software</strong> en la Universidad Estatal de Milagro (UNEMI) y resido en Naranjal, Ecuador.</p>
-          <p>Mi trayectoria combina el desarrollo de aplicaciones web y de escritorio con tecnologías emergentes, como los modelos LLM de Gemini. Me destaco por diseñar bases de datos relacionales, liderar el desarrollo de proyectos y adaptarme rápidamente a nuevas tecnologías.</p>
-          <p>Busco crear productos tecnológicos claros, eficientes y con una conexión directa entre la necesidad del usuario y la solución.</p>
+    <section class="section section--bordered" aria-labelledby="story-title">
+      <div class="container about-story reveal">
+        <p class="section-label" data-i18n="about.storyLabel">01 / Historia</p>
+        <div class="about-story__content">
+          <h2 id="story-title" data-i18n="about.storyTitle">Construyo desde la curiosidad y con propósito.</h2>
+          <p data-i18n="about.storyP1">Soy estudiante de 8.º semestre de Ingeniería de Software en la Universidad Estatal de Milagro (UNEMI) y resido en Naranjal, Ecuador.</p>
+          <p data-i18n="about.storyP2">Mi trayectoria combina el desarrollo de aplicaciones web y de escritorio con tecnologías emergentes como los modelos LLM de Gemini.</p>
+          <p data-i18n="about.storyP3">Me destaco por diseñar bases de datos relacionales, liderar proyectos y adaptarme rápidamente a nuevas tecnologías para crear productos claros, eficientes y útiles.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--bordered" aria-labelledby="stats-title">
       <div class="container">
-        <div class="section-header reveal"><p class="section-kicker">02 / En cifras</p><div><h2>Aprender, construir y compartir resultados.</h2></div></div>
-        <div class="stats reveal"><div class="stat"><strong>8.º</strong><span>Semestre en Ingeniería de Software</span></div><div class="stat"><strong>3+</strong><span>Proyectos de alto impacto</span></div><div class="stat"><strong>1</strong><span>Final nacional alcanzada</span></div></div>
+        <header class="section-header reveal">
+          <p class="section-label" data-i18n="about.statsLabel">02 / En cifras</p>
+          <div class="section-header__content"><h2 id="stats-title" data-i18n="about.statsTitle">Aprender, construir y compartir resultados.</h2></div>
+        </header>
+        <div class="about-stats reveal">
+          <div class="about-stat"><strong>8.º</strong><span data-i18n="about.statSemester">Semestre de Ingeniería de Software</span></div>
+          <div class="about-stat"><strong>3+</strong><span data-i18n="about.statProjects">Proyectos de alto impacto</span></div>
+          <div class="about-stat"><strong>1</strong><span data-i18n="about.statFinal">Final nacional alcanzada</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split-content">
-        <div class="sticky-label reveal"><p class="section-kicker">03 / Formación</p></div>
+    <section class="section section--bordered" aria-labelledby="education-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-label" data-i18n="about.educationLabelSection">03 / Formación</p>
+          <div class="section-header__content"><h2 id="education-title" data-i18n="about.educationTitle">Educación y certificaciones</h2></div>
+        </header>
         <div class="timeline">
-          <article class="timeline-item reveal"><p class="timeline-date">En curso</p><div><h3>Ingeniería de Software <span>— UNEMI</span></h3><p>Actualmente cursando el 8.º semestre en la Universidad Estatal de Milagro.</p></div></article>
-          <article class="timeline-item reveal"><p class="timeline-date">Abr. 2026 · 40 h</p><div><h3>Fundamentos de Gestión de Proyectos <span>— UNEMI</span></h3><p>Formación en metodologías de gestión, planificación estratégica y control de recursos.</p></div></article>
-          <article class="timeline-item reveal"><p class="timeline-date">Dic. 2025 · 40 h</p><div><h3>Python, nivel medio-avanzado <span>— UNEMI</span></h3><p>Competencias en programación con Python, estructuras de datos y lógica de programación.</p></div></article>
+          <article class="timeline__item reveal">
+            <p class="timeline__date" data-i18n="about.eduDate">En curso</p>
+            <div class="timeline__content"><h3 data-i18n="about.eduTitle">Ingeniería de Software</h3><p class="timeline__institution" data-i18n="about.eduInstitution">Universidad Estatal de Milagro · UNEMI</p><p data-i18n="about.eduBody">Actualmente cursando el 8.º semestre.</p></div>
+          </article>
+          <article class="timeline__item reveal">
+            <p class="timeline__date" data-i18n="about.managementDate">Abril 2026 · 40 horas</p>
+            <div class="timeline__content"><h3 data-i18n="about.managementTitle">Fundamentos de la Gestión de Proyectos</h3><p class="timeline__institution">UNEMI · Vicerrectorado de Vinculación</p><p data-i18n="about.managementBody">Formación en metodologías de gestión, planificación estratégica y control de recursos para entregar resultados con éxito.</p></div>
+          </article>
+          <article class="timeline__item reveal">
+            <p class="timeline__date" data-i18n="about.pythonDate">Diciembre 2025 · 40 horas</p>
+            <div class="timeline__content"><h3 data-i18n="about.pythonTitle">Python · Nivel medio-avanzado</h3><p class="timeline__institution">UNEMI · Vicerrectorado de Vinculación</p><p data-i18n="about.pythonBody">Competencias en programación con Python, estructuras de datos y lógica de programación.</p></div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--bordered" aria-labelledby="interests-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-label" data-i18n="about.interestsLabel">04 / Intereses</p>
+          <div class="section-header__content"><h2 id="interests-title" data-i18n="about.interestsTitle">Áreas que impulsan mi trabajo.</h2><p data-i18n="about.interestsIntro">Me interesa trabajar en la intersección entre productos multiplataforma, datos e inteligencia artificial.</p></div>
+        </header>
+        <div class="interest-grid">
+          <article class="card interest-card reveal"><span class="card__meta">01</span><h3 data-i18n="about.interestApps">Desarrollo multiplataforma</h3><p data-i18n="about.interestAppsBody">Aplicaciones consistentes para web, escritorio y móvil.</p></article>
+          <article class="card interest-card reveal"><span class="card__meta">02</span><h3 data-i18n="about.interestAi">Inteligencia artificial</h3><p data-i18n="about.interestAiBody">Integración de modelos que automaticen procesos y aporten valor real.</p></article>
+          <article class="card interest-card reveal"><span class="card__meta">03</span><h3 data-i18n="about.interestData">Datos relacionales</h3><p data-i18n="about.interestDataBody">Diseño de estructuras confiables para productos escalables.</p></article>
+        </div>
+        <a class="section-link" href="habilidades.html"><span data-i18n="about.skillsCta">Ver mis habilidades</span><span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-year></span> Carlos Llivisupa</p><p>Ingeniería de Software · Ecuador</p></div></footer>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><small>© <span data-year></span> Carlos Llivisupa. <span data-i18n="footer.rights">Todos los derechos reservados.</span></small></p>
+      <p><small data-i18n="footer.location">Ingeniería de Software · Ecuador</small></p>
+    </div>
+  </footer>
+
+  <button type="button" id="back-to-top" class="icon-btn back-to-top" hidden aria-label="Volver al inicio" data-i18n-aria="ui.top">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 15 6-6 6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/ui.js" defer></script>
 </body>
 </html>

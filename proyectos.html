@@ -1,56 +1,146 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Proyectos de software de Carlos Llivisupa: OsFin IA, PosFarmacia y Osly Shop.">
-  <meta name="theme-color" content="#090a0c">
-  <title>Proyectos — Carlos Llivisupa</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta name="theme-color" content="#0a0f1c">
+  <title>Proyectos · Carlos Llivisupa</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme || systemTheme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header"><nav class="container nav-wrap" aria-label="Navegación principal">
-    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">CL</span><span>Carlos Llivisupa</span></a>
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <ul class="nav-links" id="nav-menu"><li><a href="index.html">Inicio</a></li><li><a href="sobre-mi.html">Sobre mí</a></li><li><a href="habilidades.html">Habilidades</a></li><li><a href="proyectos.html" aria-current="page">Proyectos</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  </nav></header>
+<body data-title-key="meta.title.projects" data-description-key="meta.description.projects">
+  <a class="skip-link" href="#contenido" data-i18n="nav.skip">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Carlos Llivisupa"><span class="brand__mark" aria-hidden="true">CL</span><span>Carlos Llivisupa</span></a>
+      <nav id="nav-links" class="nav" aria-label="Navegación principal" data-i18n-aria="nav.aria">
+        <ul class="nav__list">
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="habilidades.html" data-i18n="nav.skills">Habilidades</a></li>
+          <li><a href="proyectos.html" aria-current="page" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="design-system.html" data-i18n="nav.design">Design System</a></li>
+          <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="nav.languages"><button type="button" data-lang-btn="es" aria-pressed="true">ES</button><button type="button" data-lang-btn="en" aria-pressed="false">EN</button></div>
+        <button type="button" id="theme-toggle" class="icon-btn" aria-label="Cambiar tema claro u oscuro" aria-pressed="true" data-i18n-aria="nav.theme">
+          <svg class="theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"/></svg>
+          <svg class="theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button type="button" id="menu-btn" class="icon-btn menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú" data-i18n-aria="nav.menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
 
   <main id="contenido">
-    <section class="container page-intro reveal">
-      <p class="eyebrow">Trabajo seleccionado</p>
-      <h1>Proyectos.</h1>
-      <p class="lede">Aplicaciones construidas para simplificar finanzas, operaciones comerciales y experiencias de compra.</p>
+    <section class="container page-intro" aria-labelledby="projects-title">
+      <p class="section-label reveal" data-i18n="projects.pageLabel">Trabajo seleccionado</p>
+      <h1 id="projects-title" class="reveal" data-i18n="projects.pageTitle">Proyectos.</h1>
+      <p class="reveal" data-i18n="projects.pageLead">Aplicaciones construidas para simplificar finanzas, operaciones comerciales y experiencias de compra.</p>
     </section>
 
-    <section class="section">
-      <div class="container projects-grid">
-        <article class="project-detail reveal" id="osfin">
-          <div class="project-detail-top"><span>01 / IA + FINTECH</span><span>Julio 2026</span></div>
-          <h2>OsFin IA</h2>
-          <p>Aplicación para la gestión inteligente de finanzas personales, potenciada por inteligencia artificial. Participé en la lógica de negocio, el backend y la integración de modelos de IA para automatizar y optimizar el análisis financiero.</p>
-          <p class="achievement">Finalista en la Hackathon Agentic Scale Ecuador Tech Week 2026.</p>
-          <div class="badges"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">PostgreSQL</span><span class="badge">WhatsApp Business API</span></div>
-        </article>
-        <article class="project-detail reveal" id="posfarmacia">
-          <div class="project-detail-top"><span>02 / POS</span><span>May.–Ago. 2026</span></div>
-          <h2>PosFarmacia</h2>
-          <p>Sistema integral de punto de venta de escritorio para farmacias, con funcionamiento offline para asegurar la continuidad del negocio y la correcta administración de productos.</p>
-          <div class="badges"><span class="badge">Flutter</span><span class="badge">Django REST</span><span class="badge">PostgreSQL</span></div>
-        </article>
-        <article class="project-detail reveal" id="osly-shop">
-          <div class="project-detail-top"><span>03 / E-COMMERCE</span><span>May.–Ago. 2026</span></div>
-          <h2>Osly Shop</h2>
-          <p>Plataforma de comercio electrónico desarrollada para optimizar ventas, controlar inventario y ofrecer una experiencia fluida durante el proceso de compra.</p>
-          <div class="badges"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">PostgreSQL</span></div>
-        </article>
+    <section class="section section--bordered" aria-labelledby="portfolio-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-label" data-i18n="projects.sectionLabel">01 / Portafolio</p>
+          <div class="section-header__content"><h2 id="portfolio-title" data-i18n="projects.sectionTitle">Soluciones desarrolladas para contextos reales.</h2><p data-i18n="projects.sectionIntro">Filtra por tecnología o abre cada proyecto para conocer su enfoque técnico.</p></div>
+        </header>
+
+        <div class="filters reveal" role="group" aria-label="Filtrar proyectos por tecnología" data-i18n-aria="projects.filterLabel">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="projects.filterAll">Todos</button>
+          <button type="button" class="chip" data-filter="django" aria-pressed="false">Django</button>
+          <button type="button" class="chip" data-filter="postgresql" aria-pressed="false">PostgreSQL</button>
+          <button type="button" class="chip" data-filter="flutter" aria-pressed="false">Flutter</button>
+          <button type="button" class="chip" data-filter="ia" aria-pressed="false" data-i18n="projects.filterAi">IA</button>
+        </div>
+
+        <p id="filter-empty" class="filter-empty" hidden data-i18n="projects.filterEmpty">No hay proyectos con esa tecnología.</p>
+
+        <div class="projects-page-grid" id="projects-grid">
+          <article class="card project-card reveal" id="osfin" data-tech="python django postgresql ia whatsapp">
+            <figure class="project-card__visual">
+              <img src="OSFIN%20IA.png" width="500" height="500" loading="lazy" alt="Logotipo de OsFin IA" data-i18n-alt="projects.logo.osfin">
+              <figcaption class="visually-hidden">OsFin IA</figcaption>
+            </figure>
+            <div class="card__meta"><span data-i18n="projects.osfin.category">IA + Finanzas</span><time datetime="2026-07" data-i18n="projects.osfin.date">Julio 2026</time></div>
+            <h3 class="project-card__title">OsFin IA</h3>
+            <p class="project-card__desc" data-i18n="projects.osfin.desc">Aplicación para la gestión inteligente de finanzas personales, potenciada por inteligencia artificial.</p>
+            <p class="project-card__problem"><strong data-i18n="projects.problem">Problema:</strong> <span data-i18n="projects.osfin.problem">Automatizar y optimizar el análisis financiero cotidiano.</span></p>
+            <p class="project-card__contribution"><strong data-i18n="projects.contribution">Aporte técnico:</strong> <span data-i18n="projects.osfin.contribution">Participé en la lógica de negocio, el backend y la integración de modelos de IA para automatizar el análisis financiero.</span></p>
+            <p class="project-card__achievement"><strong data-i18n="projects.achievement">Logros:</strong> <span data-i18n="projects.osfin.achievementPrefix">Proyecto finalista en la competencia nacional</span> <em>Hackathon Agentic Scale Ecuador Tech Week 2026</em>.</p>
+            <ul class="tags" aria-label="Tecnologías" data-i18n-aria="projects.tech"><li class="tag">Python</li><li class="tag">Django</li><li class="tag">PostgreSQL</li><li class="tag">WhatsApp Business API</li></ul>
+            <div class="card__actions"><button type="button" class="btn btn--secondary" data-modal-open="osfin" data-i18n="projects.details">Ver detalles</button></div>
+          </article>
+
+          <article class="card project-card reveal" id="posfarmacia" data-tech="flutter django postgresql">
+            <figure class="project-card__visual">
+              <img src="POS%20FARMACIA.png" width="500" height="500" loading="lazy" alt="Logotipo de PosFarmacia" data-i18n-alt="projects.logo.pos">
+              <figcaption class="visually-hidden">PosFarmacia</figcaption>
+            </figure>
+            <div class="card__meta"><span data-i18n="projects.pos.category">POS + Operación offline</span><time datetime="2026-05" data-i18n="projects.pos.date">Mayo–agosto 2026</time></div>
+            <h3 class="project-card__title">PosFarmacia</h3>
+            <p class="project-card__desc" data-i18n="projects.pos.desc">Sistema integral de punto de venta de escritorio para farmacias con funcionamiento offline.</p>
+            <p class="project-card__problem"><strong data-i18n="projects.problem">Problema:</strong> <span data-i18n="projects.pos.problem">Mantener las ventas y la administración de productos incluso sin conexión.</span></p>
+            <p class="project-card__contribution"><strong data-i18n="projects.contribution">Aporte técnico:</strong> <span data-i18n="projects.pos.contribution">Desarrollo full-stack con interfaz en Flutter, persistencia en PostgreSQL y una API REST construida con Django.</span></p>
+            <ul class="tags" aria-label="Tecnologías" data-i18n-aria="projects.tech"><li class="tag">Flutter</li><li class="tag">Django REST</li><li class="tag">PostgreSQL</li></ul>
+            <div class="card__actions"><button type="button" class="btn btn--secondary" data-modal-open="posfarmacia" data-i18n="projects.details">Ver detalles</button></div>
+          </article>
+
+          <article class="card project-card reveal" id="osly-shop" data-tech="python django postgresql">
+            <figure class="project-card__visual">
+              <img src="OSLY%20SHOP.png" width="500" height="500" loading="lazy" alt="Logotipo de Osly Shop" data-i18n-alt="projects.logo.shop">
+              <figcaption class="visually-hidden">Osly Shop</figcaption>
+            </figure>
+            <div class="card__meta"><span data-i18n="projects.shop.category">E-commerce</span><time datetime="2026-05" data-i18n="projects.shop.date">Mayo–agosto 2026</time></div>
+            <h3 class="project-card__title">Osly Shop</h3>
+            <p class="project-card__desc" data-i18n="projects.shop.desc">Plataforma de comercio electrónico para ventas, inventario y una experiencia de compra fluida.</p>
+            <p class="project-card__problem"><strong data-i18n="projects.problem">Problema:</strong> <span data-i18n="projects.shop.problem">Centralizar y simplificar la operación comercial de una tienda en línea.</span></p>
+            <p class="project-card__contribution"><strong data-i18n="projects.contribution">Aporte técnico:</strong> <span data-i18n="projects.shop.contribution">Desarrollo backend y full-stack orientado a centralizar ventas, inventario y pedidos.</span></p>
+            <ul class="tags" aria-label="Tecnologías" data-i18n-aria="projects.tech"><li class="tag">Python</li><li class="tag">Django</li><li class="tag">PostgreSQL</li></ul>
+            <div class="card__actions"><button type="button" class="btn btn--secondary" data-modal-open="osly-shop" data-i18n="projects.details">Ver detalles</button></div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section"><div class="container cta reveal"><div><p class="section-kicker">Próximo reto</p><h2>¿Tienes un problema que el software pueda resolver?</h2><p>Conversemos sobre tu idea, sus usuarios y la mejor forma de llevarla a producción.</p></div><a class="button primary" href="contacto.html">Hablemos <span aria-hidden="true">↗</span></a></div></section>
+    <section class="section section--bordered" aria-labelledby="projects-cta-title">
+      <div class="container"><div class="cta reveal"><div class="cta__content"><p class="section-label" data-i18n="projects.ctaLabel">Próximo reto</p><h2 id="projects-cta-title" data-i18n="projects.ctaTitle">¿Tienes un problema que el software pueda resolver?</h2><p data-i18n="projects.ctaBody">Conversemos sobre tu idea, sus usuarios y la mejor forma de llevarla a producción.</p></div><a class="btn btn--primary" href="contacto.html" data-i18n="projects.ctaButton">Hablemos</a></div></div>
+    </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-year></span> Carlos Llivisupa</p><p>Ingeniería de Software · Ecuador</p></div></footer>
+  <footer class="site-footer"><div class="container site-footer__inner"><p><small>© <span data-year></span> Carlos Llivisupa. <span data-i18n="footer.rights">Todos los derechos reservados.</span></small></p><p><small data-i18n="footer.location">Ingeniería de Software · Ecuador</small></p></div></footer>
+
+  <dialog id="project-modal" class="modal" aria-labelledby="modal-title">
+    <article class="modal__content">
+      <header class="modal__header"><h2 id="modal-title"></h2><button type="button" class="icon-btn" id="modal-close" aria-label="Cerrar detalles" data-i18n-aria="projects.close"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+      <div id="modal-body" class="modal__body"></div>
+    </article>
+  </dialog>
+
+  <button type="button" id="back-to-top" class="icon-btn back-to-top" hidden aria-label="Volver al inicio" data-i18n-aria="ui.top"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 15 6-6 6 6"/></svg></button>
+
+  <script src="js/translations.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/projects.js" defer></script>
 </body>
 </html>

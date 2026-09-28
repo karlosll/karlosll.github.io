@@ -61,12 +61,10 @@
 
   <main id="contenido">
     <section class="hero container" aria-labelledby="hero-title">
-      <div class="reveal">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Hola, mi nombre es</p>
-        <h1 id="hero-title">Carlos <span>Llivisupa.</span></h1>
-      </div>
       <div class="hero__body reveal">
-        <div>
+        <div class="hero__content">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Hola, mi nombre es</p>
+          <h1 id="hero-title">Carlos <span>Llivisupa.</span></h1>
           <p class="hero__role" data-i18n="hero.role">Ingeniería de Software · IA · Full-stack</p>
           <p class="lead" data-i18n="hero.tagline">Soy estudiante de Ingeniería de Software, apasionado por crear aplicaciones multiplataforma e integrar inteligencia artificial para resolver problemas del mundo real.</p>
           <div class="hero__actions">
@@ -79,11 +77,17 @@
           </ul>
         </div>
 
-        <aside class="hero__facts" aria-label="Datos destacados" data-i18n-aria="hero.facts">
-          <div class="hero__fact"><strong>8.º</strong><span data-i18n="hero.semester">Semestre de Ingeniería de Software</span></div>
-          <div class="hero__fact"><strong>3+</strong><span data-i18n="hero.projects">Proyectos de alto impacto</span></div>
-          <div class="hero__fact"><strong>Top</strong><span data-i18n="hero.finalist">Finalista en hackathon nacional</span></div>
-        </aside>
+        <div class="hero__side">
+          <figure class="hero__portrait">
+            <img src="Foto%20de%20Perfil.jpg" width="864" height="1195" loading="eager" fetchpriority="high" alt="Retrato profesional de Carlos Llivisupa" data-i18n-alt="hero.portraitAlt">
+            <figcaption data-i18n="hero.portraitCaption">Carlos Llivisupa · Naranjal, Ecuador</figcaption>
+          </figure>
+          <aside class="hero__facts" aria-label="Datos destacados" data-i18n-aria="hero.facts">
+            <div class="hero__fact"><strong>8.º</strong><span data-i18n="hero.semester">Semestre de Ingeniería de Software</span></div>
+            <div class="hero__fact"><strong>3+</strong><span data-i18n="hero.projects">Proyectos de alto impacto</span></div>
+            <div class="hero__fact"><strong>Top</strong><span data-i18n="hero.finalist">Finalista en hackathon nacional</span></div>
+          </aside>
+        </div>
       </div>
     </section>
 
