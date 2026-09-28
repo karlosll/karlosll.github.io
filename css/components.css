@@ -219,6 +219,47 @@
   font: var(--weight-regular) var(--text-xs) var(--font-mono);
 }
 
+.tech-label {
+  --tech-color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.tech-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  padding: 0.24rem;
+  border: var(--border-width) solid color-mix(in srgb, var(--tech-color) 58%, #ffffff);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(145deg, #ffffff 48%, color-mix(in srgb, var(--tech-color) 24%, #ffffff));
+  box-shadow: 0 0.18rem 0.55rem color-mix(in srgb, var(--tech-color) 24%, transparent);
+  object-fit: contain;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.tech-label--python { --tech-color: #3776ab; }
+.tech-label--django { --tech-color: #0c4b33; }
+.tech-label--postgresql { --tech-color: #4169e1; }
+.tech-label--flutter { --tech-color: #02569b; }
+.tech-label--googlegemini { --tech-color: #8e75ff; }
+.tech-label--openapiinitiative { --tech-color: #6ba539; }
+.tech-label--whatsapp { --tech-color: #25d366; }
+.tech-label--supabase { --tech-color: #3ecf8e; }
+.tech-label--sqlite { --tech-color: #003b57; }
+.tech-label--opencv { --tech-color: #5c3ee8; }
+.tech-label--digitalocean { --tech-color: #0080ff; }
+.tech-label--vercel { --tech-color: #111111; }
+.tech-label--jira { --tech-color: #0052cc; }
+.tech-label--scrumalliance { --tech-color: #009fda; }
+
+.skill-row__name .tech-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0.3rem;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -227,6 +268,8 @@
 }
 
 .chip {
+  align-items: center;
+  justify-content: center;
   min-height: var(--tap-min);
   padding: 0 var(--space-md);
   border: var(--border-width) solid var(--color-border);
@@ -340,6 +383,11 @@
 }
 
 @media (hover: hover) {
+  .tech-label:hover .tech-icon {
+    transform: translateY(calc(var(--border-width) * -1)) scale(1.08);
+    box-shadow: 0 0.28rem 0.8rem color-mix(in srgb, var(--tech-color) 34%, transparent);
+  }
+
   .chip:hover {
     border-color: var(--color-accent-border);
     color: var(--color-primary-hover);
