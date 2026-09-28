@@ -1,135 +1,166 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portafolio de Carlos Llivisupa, estudiante de Ingeniería de Software enfocado en aplicaciones multiplataforma e inteligencia artificial.">
-  <meta name="theme-color" content="#090a0c">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portafolio de Carlos Llivisupa: desarrollo de software, inteligencia artificial, Flutter y Django.">
+  <meta name="theme-color" content="#0a0f1c">
   <title>Carlos Llivisupa — Ingeniería de Software</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', saved || system);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/translations.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header">
-    <nav class="container nav-wrap" aria-label="Navegación principal">
-      <a class="brand" href="index.html" aria-label="Carlos Llivisupa, inicio">
-        <span class="brand-mark" aria-hidden="true">CL</span>
+  <a class="skip-link" href="#contenido" data-i18n="skip.content">Saltar al contenido</a>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a class="navbar__logo" href="index.html" data-i18n-aria="brand.label" aria-label="Carlos Llivisupa, inicio">
+        <span class="logo-mark" aria-hidden="true">CL</span>
         <span>Carlos Llivisupa</span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <ul class="nav-links" id="nav-menu">
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
-        <li><a href="sobre-mi.html">Sobre mí</a></li>
-        <li><a href="habilidades.html">Habilidades</a></li>
-        <li><a href="proyectos.html">Proyectos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+
+      <nav id="nav-links" class="navbar__links" data-i18n-aria="nav.label" aria-label="Navegación principal">
+        <a href="index.html" data-i18n="nav.home" aria-current="page">Inicio</a>
+        <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+        <a href="habilidades.html" data-i18n="nav.skills">Habilidades</a>
+        <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+        <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <div class="lang-switch" role="group" data-i18n-aria="nav.languages" aria-label="Seleccionar idioma">
+          <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <button id="theme-toggle" class="icon-btn" type="button" data-i18n-aria="nav.themeToggle" aria-label="Cambiar tema claro u oscuro" aria-pressed="true">
+          <svg class="theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"/></svg>
+          <svg class="theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button id="menu-btn" class="menu-btn" type="button" data-i18n-aria="nav.menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main id="contenido">
     <section class="container hero">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Disponible para colaborar</p>
+      <div class="hero__content reveal">
+        <p class="availability" data-i18n="hero.availability">Disponible para colaborar</p>
         <h1>Carlos <span>Llivisupa.</span></h1>
-        <p class="hero-lead">Estudiante de Ingeniería de Software enfocado en crear aplicaciones multiplataforma e integrar inteligencia artificial para resolver problemas reales.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="proyectos.html">Ver mis proyectos <span aria-hidden="true">↗</span></a>
-          <a class="button" href="contacto.html">Contactarme</a>
+        <p class="hero__role" data-i18n="hero.role">Estudiante de Ingeniería de Software</p>
+        <p class="hero__description" data-i18n="hero.description">Creo aplicaciones multiplataforma e integro modelos de inteligencia artificial para desarrollar soluciones eficientes a problemas del mundo real.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="proyectos.html"><span data-i18n="hero.projects">Ver mis proyectos</span><span aria-hidden="true">↗</span></a>
+          <a class="btn" href="contacto.html" data-i18n="hero.contact">Contactarme</a>
         </div>
-        <div class="social-links" aria-label="Redes profesionales">
-          <a class="social-link" href="https://github.com/karlosll?tab=repositories" target="_blank" rel="noreferrer">
+        <div class="social" data-i18n-aria="hero.socials" aria-label="Redes profesionales">
+          <a href="https://github.com/karlosll?tab=repositories" target="_blank" rel="noreferrer">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.75.4-1.27.74-1.56-2.57-.3-5.27-1.29-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.16 1.18a10.93 10.93 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.71 5.39-5.29 5.68.42.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
             GitHub
           </a>
-          <a class="social-link" href="https://www.linkedin.com/in/carlos-llivisupa-/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/carlos-llivisupa-/" target="_blank" rel="noreferrer">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M5.37 7.97H1.22V21h4.15V7.97ZM3.3 1.5a2.42 2.42 0 1 0 0 4.84 2.42 2.42 0 0 0 0-4.84ZM21.78 13.53c0-3.92-2.09-5.74-4.89-5.74a4.24 4.24 0 0 0-3.84 2.11h-.06V7.97H9v13.04h4.15v-6.45c0-1.7.32-3.35 2.43-3.35 2.08 0 2.1 1.95 2.1 3.46V21h4.15l-.05-7.47Z"/></svg>
             LinkedIn
           </a>
         </div>
       </div>
-      <figure class="hero-portrait reveal">
-        <img src="Foto%20de%20Perfil.jpg" alt="Retrato profesional de Carlos Llivisupa" width="864" height="1195">
-        <figcaption class="portrait-label">Naranjal, Ecuador</figcaption>
+
+      <figure class="hero__visual reveal">
+        <img src="Foto%20de%20Perfil.jpg" width="864" height="1195" loading="eager" fetchpriority="high" data-i18n-alt="hero.portraitAlt" alt="Retrato profesional de Carlos Llivisupa">
+        <figcaption class="visual-chip" data-i18n="hero.location">Naranjal, Ecuador</figcaption>
       </figure>
     </section>
 
-    <section class="section">
+    <div class="container metrics reveal" data-i18n-aria="metrics.label" aria-label="Datos destacados">
+      <div class="metric"><strong>8.º</strong><span data-i18n="metrics.semester">Semestre de Ingeniería de Software</span></div>
+      <div class="metric"><strong>3+</strong><span data-i18n="metrics.projects">Proyectos de alto impacto</span></div>
+      <div class="metric"><strong>Top</strong><span data-i18n="metrics.finalist">Finalista en hackathon nacional</span></div>
+    </div>
+
+    <section class="section section--bordered">
       <div class="container">
-        <div class="section-header reveal">
-          <p class="section-kicker">01 / Perfil</p>
+        <div class="section__header reveal">
+          <p class="section-label" data-i18n="about.label">01 / Perfil</p>
           <div>
-            <h2>Construyo tecnología con intención y enfoque práctico.</h2>
-            <p class="section-copy">Combino desarrollo web y de escritorio con tecnologías emergentes. Me interesa convertir ideas complejas en productos claros, eficientes y útiles.</p>
-            <a class="text-link" href="sobre-mi.html">Conoce más sobre mí <span aria-hidden="true">→</span></a>
+            <h2 data-i18n="about.title">Tecnología con intención y enfoque práctico.</h2>
+            <p data-i18n="about.body">Soy estudiante de 8.º semestre en la UNEMI. Combino desarrollo web, móvil y de escritorio con modelos de IA para convertir necesidades complejas en productos claros y útiles.</p>
+            <a class="text-link" href="sobre-mi.html"><span data-i18n="about.link">Conoce más sobre mí</span><span aria-hidden="true">→</span></a>
           </div>
-        </div>
-        <div class="stats reveal" aria-label="Datos destacados">
-          <div class="stat"><strong>8.º</strong><span>Semestre de Ingeniería de Software</span></div>
-          <div class="stat"><strong>3+</strong><span>Proyectos de alto impacto</span></div>
-          <div class="stat"><strong>Top</strong><span>Finalista en hackathon nacional</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="proyectos">
+    <section class="section section--bordered">
       <div class="container">
-        <div class="section-header reveal">
-          <p class="section-kicker">02 / Selección</p>
-          <div>
-            <h2>Proyectos destacados.</h2>
-            <p class="section-copy">Soluciones creadas alrededor de finanzas, comercio y gestión de negocios.</p>
-          </div>
+        <div class="section__header reveal">
+          <p class="section-label" data-i18n="skills.label">02 / Stack</p>
+          <div><h2 data-i18n="skills.title">Herramientas para construir de principio a fin.</h2><p data-i18n="skills.body">Un stack enfocado en productos multiplataforma, datos confiables e integraciones inteligentes.</p></div>
         </div>
-        <div class="project-list">
-          <a class="project-card reveal" href="proyectos.html#osfin">
-            <div class="project-title"><h3>OsFin IA</h3><p>Co-desarrollador</p></div>
-            <div class="project-body">
-              <p>Gestión inteligente de finanzas personales potenciada por IA. Proyecto finalista de la Hackathon Agentic Scale Ecuador Tech Week 2026.</p>
-              <div class="badges"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">PostgreSQL</span><span class="badge">IA</span></div>
-            </div>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="project-card reveal" href="proyectos.html#posfarmacia">
-            <div class="project-title"><h3>PosFarmacia</h3><p>Full-Stack</p></div>
-            <div class="project-body">
-              <p>Sistema de punto de venta de escritorio con operación offline para administrar productos y asegurar la continuidad del negocio.</p>
-              <div class="badges"><span class="badge">Flutter</span><span class="badge">Django REST</span><span class="badge">PostgreSQL</span></div>
-            </div>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="project-card reveal" href="proyectos.html#osly-shop">
-            <div class="project-title"><h3>Osly Shop</h3><p>Backend / Full-Stack</p></div>
-            <div class="project-body">
-              <p>Plataforma e-commerce orientada a optimizar ventas, inventario y la experiencia de compra.</p>
-              <div class="badges"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">PostgreSQL</span></div>
-            </div>
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </a>
+        <div class="skill-grid">
+          <article class="card reveal"><span class="card__index">01</span><h3 data-i18n="skills.backend">Backend</h3><p data-i18n="skills.backendDesc">APIs, lógica de negocio y servicios robustos.</p><div class="tags"><span class="tag">Python</span><span class="tag">Django</span></div></article>
+          <article class="card reveal"><span class="card__index">02</span><h3 data-i18n="skills.apps">Aplicaciones</h3><p data-i18n="skills.appsDesc">Experiencias consistentes para escritorio y móvil.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span></div></article>
+          <article class="card reveal"><span class="card__index">03</span><h3 data-i18n="skills.data">Datos</h3><p data-i18n="skills.dataDesc">Modelado relacional, persistencia y consultas.</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Supabase</span></div></article>
+          <article class="card reveal"><span class="card__index">04</span><h3 data-i18n="skills.ai">Inteligencia artificial</h3><p data-i18n="skills.aiDesc">Integración de LLM y visión por computadora.</p><div class="tags"><span class="tag">Gemini</span><span class="tag">OpenCV</span></div></article>
         </div>
-        <a class="text-link" href="proyectos.html">Explorar todos los proyectos <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container cta reveal">
-        <div>
-          <p class="section-kicker">¿Construimos algo?</p>
-          <h2>Convirtamos una buena idea en una solución real.</h2>
-          <p>Estoy abierto a oportunidades, colaboraciones y proyectos donde el software y la IA generen impacto.</p>
+    <section class="section section--bordered" id="proyectos">
+      <div class="container">
+        <div class="section__header reveal">
+          <p class="section-label" data-i18n="projects.label">03 / Proyectos</p>
+          <div><h2 data-i18n="projects.title">Soluciones creadas para contextos reales.</h2><p data-i18n="projects.body">Una selección de proyectos en finanzas, comercio y gestión operativa.</p></div>
         </div>
-        <a class="button primary" href="mailto:carlosllivisupa25@gmail.com">Escríbeme <span aria-hidden="true">↗</span></a>
+        <div class="project-grid">
+          <article class="card project-card project-card--featured reveal">
+            <div class="project-card__top"><span data-i18n="projects.osfinRole">Co-desarrollador</span><span data-i18n="projects.osfinDate">Julio 2026</span></div>
+            <h3>OsFin IA</h3><p data-i18n="projects.osfin">Gestión inteligente de finanzas personales potenciada por IA. Finalista en la Hackathon Agentic Scale Ecuador Tech Week 2026.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">IA</span></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-card__top"><span data-i18n="projects.posRole">Desarrollador Full-Stack</span><span data-i18n="projects.posDate">Mayo–agosto 2026</span></div>
+            <h3>PosFarmacia</h3><p data-i18n="projects.pos">Punto de venta para farmacias con operación offline y administración integral de productos.</p>
+            <div class="tags"><span class="tag">Flutter</span><span class="tag">Django REST</span><span class="tag">PostgreSQL</span></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-card__top"><span data-i18n="projects.shopRole">Backend / Full-Stack</span><span data-i18n="projects.shopDate">Mayo–agosto 2026</span></div>
+            <h3>Osly Shop</h3><p data-i18n="projects.shop">E-commerce para optimizar ventas, inventario y la experiencia durante el proceso de compra.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span></div>
+          </article>
+        </div>
+        <a class="text-link" href="proyectos.html"><span data-i18n="projects.link">Explorar todos los proyectos</span><span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section section--bordered">
+      <div class="container">
+        <div class="cta reveal">
+          <div><p class="section-label" data-i18n="contact.label">¿Construimos algo?</p><h2 data-i18n="contact.title">Convirtamos una buena idea en una solución real.</h2><p data-i18n="contact.body">Estoy abierto a oportunidades, colaboraciones y proyectos donde el software y la IA generen impacto.</p></div>
+          <a class="btn btn--primary" href="mailto:carlosllivisupa25@gmail.com"><span data-i18n="contact.button">Escríbeme</span><span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span data-year></span> Carlos Llivisupa</p>
-      <p>Ingeniería de Software · Ecuador</p>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span data-year></span> Carlos Llivisupa. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+      <p data-i18n="footer.location">Ingeniería de Software · Ecuador</p>
     </div>
   </footer>
 </body>
