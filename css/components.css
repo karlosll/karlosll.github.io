@@ -243,6 +243,8 @@
 .tech-label--django { --tech-color: #0c4b33; }
 .tech-label--postgresql { --tech-color: #4169e1; }
 .tech-label--flutter { --tech-color: #02569b; }
+.tech-label--dart { --tech-color: #0175c2; }
+.tech-label--kotlin { --tech-color: #7f52ff; }
 .tech-label--googlegemini { --tech-color: #8e75ff; }
 .tech-label--openapiinitiative { --tech-color: #6ba539; }
 .tech-label--whatsapp { --tech-color: #25d366; }

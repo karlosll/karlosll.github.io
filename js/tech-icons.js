@@ -4,6 +4,8 @@ const technologyIcons = {
   'django rest': 'django',
   postgresql: 'postgresql',
   flutter: 'flutter',
+  dart: 'dart',
+  kotlin: 'kotlin',
   ia: 'googlegemini',
   ai: 'googlegemini',
   gemini: 'googlegemini',
