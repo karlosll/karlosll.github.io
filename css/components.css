@@ -245,8 +245,11 @@
 }
 
 .modal {
+  position: fixed;
+  inset: 0;
   width: min(92vw, 40rem);
   max-height: 86vh;
+  margin: auto;
   padding: 0;
   overflow: auto;
   border: var(--border-width) solid var(--color-border);
