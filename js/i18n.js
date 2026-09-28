@@ -11,10 +11,12 @@ function setLanguage(language) {
   const dictionary = translations[lang];
 
   document.documentElement.lang = lang;
-  document.title = dictionary['meta.title'];
+  const titleKey = document.body.dataset.titleKey || 'meta.title.home';
+  document.title = dictionary[titleKey] || dictionary['meta.title.home'];
 
   const description = document.querySelector('meta[name="description"]');
-  description?.setAttribute('content', dictionary['meta.description']);
+  const descriptionKey = document.body.dataset.descriptionKey || 'meta.description';
+  description?.setAttribute('content', dictionary[descriptionKey] || dictionary['meta.description']);
 
   document.querySelectorAll('[data-i18n]').forEach((element) => {
     const translation = dictionary[element.dataset.i18n];
@@ -33,7 +35,7 @@ function setLanguage(language) {
 
   document.querySelectorAll('[data-lang-btn]').forEach((button) => {
     const isActive = button.dataset.langBtn === lang;
-    button.classList.toggle('active', isActive);
+    button.classList.toggle('is-active', isActive);
     button.setAttribute('aria-pressed', String(isActive));
   });
 
@@ -42,6 +44,8 @@ function setLanguage(language) {
   } catch (_) {
     // El cambio sigue activo durante la sesión aunque no haya almacenamiento.
   }
+
+  document.dispatchEvent(new CustomEvent('languagechange', { detail: { lang } }));
 }
 
 document.querySelectorAll('[data-lang-btn]').forEach((button) => {

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Sistema de diseño, tokens y componentes del portafolio de Carlos Llivisupa.">
+  <meta name="theme-color" content="#0a0f1c">
+  <title>Design System · Carlos Llivisupa</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme || systemTheme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-title-key="meta.title.design" data-description-key="meta.description.design">
+  <a class="skip-link" href="#contenido" data-i18n="nav.skip">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Carlos Llivisupa"><span class="brand__mark" aria-hidden="true">CL</span><span>Carlos Llivisupa</span></a>
+      <nav id="nav-links" class="nav" aria-label="Navegación principal" data-i18n-aria="nav.aria">
+        <ul class="nav__list">
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="habilidades.html" data-i18n="nav.skills">Habilidades</a></li>
+          <li><a href="proyectos.html" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="design-system.html" aria-current="page" data-i18n="nav.design">Design System</a></li>
+          <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="nav.languages"><button type="button" data-lang-btn="es" aria-pressed="true">ES</button><button type="button" data-lang-btn="en" aria-pressed="false">EN</button></div>
+        <button type="button" id="theme-toggle" class="icon-btn" aria-label="Cambiar tema claro u oscuro" aria-pressed="true" data-i18n-aria="nav.theme">
+          <svg class="theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"/></svg>
+          <svg class="theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button type="button" id="menu-btn" class="icon-btn menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú" data-i18n-aria="nav.menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="container page-intro" aria-labelledby="ds-title">
+      <p class="section-label" data-i18n="ds.label">Documentación visual</p>
+      <h1 id="ds-title" data-i18n="ds.title">Design System</h1>
+      <p data-i18n="ds.intro">Tokens y componentes reutilizables que mantienen la experiencia visual consistente en todo el portafolio.</p>
+    </section>
+
+    <section class="section section--bordered" aria-labelledby="colors-title">
+      <div class="container ds-section reveal">
+        <header class="ds-section__header"><h2 id="colors-title" data-i18n="ds.colors">Colores</h2><p data-i18n="ds.colorsIntro">La paleta cambia automáticamente con el tema activo.</p></header>
+        <div class="swatches">
+          <figure class="swatch"><div class="swatch__color swatch__color--primary"></div><figcaption class="swatch__meta"><strong>Primary</strong><code>--color-primary</code><span data-token-value="--color-primary"></span></figcaption></figure>
+          <figure class="swatch"><div class="swatch__color swatch__color--secondary"></div><figcaption class="swatch__meta"><strong>Secondary</strong><code>--color-secondary</code><span data-token-value="--color-secondary"></span></figcaption></figure>
+          <figure class="swatch"><div class="swatch__color swatch__color--background"></div><figcaption class="swatch__meta"><strong>Background</strong><code>--color-background</code><span data-token-value="--color-background"></span></figcaption></figure>
+          <figure class="swatch"><div class="swatch__color swatch__color--surface"></div><figcaption class="swatch__meta"><strong>Surface</strong><code>--color-surface</code><span data-token-value="--color-surface"></span></figcaption></figure>
+          <figure class="swatch"><div class="swatch__color swatch__color--text"></div><figcaption class="swatch__meta"><strong>Text</strong><code>--color-text</code><span data-token-value="--color-text"></span></figcaption></figure>
+          <figure class="swatch"><div class="swatch__color swatch__color--success"></div><figcaption class="swatch__meta"><strong>Success</strong><code>--color-success</code><span data-token-value="--color-success"></span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--bordered" aria-labelledby="type-title">
+      <div class="container ds-section reveal">
+        <h2 id="type-title" data-i18n="ds.type">Tipografía</h2>
+        <div class="specimen"><p class="specimen__h1" data-i18n="ds.sampleTitle">Título de ejemplo</p><h2>Heading 2</h2><h3>Heading 3</h3><p data-i18n="ds.sampleBody">Texto de apoyo diseñado para mantener una lectura cómoda.</p><a href="#type-title">Inter / System UI</a></div>
+      </div>
+    </section>
+
+    <section class="section section--bordered" aria-labelledby="spacing-title">
+      <div class="container ds-section reveal">
+        <h2 id="spacing-title" data-i18n="ds.spacing">Espaciado</h2>
+        <div class="spacing-list">
+          <div class="spacing-row"><code>--space-xs</code><span class="spacing-row__bar spacing-row__bar--xs"></span><small>0.5rem</small></div>
+          <div class="spacing-row"><code>--space-md</code><span class="spacing-row__bar spacing-row__bar--md"></span><small>1rem</small></div>
+          <div class="spacing-row"><code>--space-xl</code><span class="spacing-row__bar spacing-row__bar--xl"></span><small>2rem</small></div>
+          <div class="spacing-row"><code>--space-3xl</code><span class="spacing-row__bar spacing-row__bar--3xl"></span><small>4rem</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--bordered" aria-labelledby="components-title">
+      <div class="container ds-section reveal">
+        <h2 id="components-title" data-i18n="ds.components">Componentes</h2>
+        <div class="component-showcase">
+          <button type="button" class="btn btn--primary" data-i18n="ds.primaryAction">Acción principal</button>
+          <button type="button" class="btn btn--secondary" data-i18n="ds.secondaryAction">Acción secundaria</button>
+          <span class="tag">Django</span>
+          <div class="lang-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="nav.languages"><button type="button">ES</button><button type="button" class="is-active">EN</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner"><p><small>© <span data-year></span> Carlos Llivisupa. <span data-i18n="footer.rights">Todos los derechos reservados.</span></small></p><p><small data-i18n="footer.location">Ingeniería de Software · Ecuador</small></p></div></footer>
+  <button type="button" id="back-to-top" class="icon-btn back-to-top" hidden aria-label="Volver al inicio" data-i18n-aria="ui.top"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 15 6-6 6 6"/></svg></button>
+
+  <script src="js/translations.js" defer></script><script src="js/i18n.js" defer></script><script src="js/theme.js" defer></script><script src="js/menu.js" defer></script><script src="js/ui.js" defer></script>
+</body>
+</html>

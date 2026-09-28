@@ -8,7 +8,8 @@ function getTheme() {
 function syncThemeButton() {
   const isDark = getTheme() === 'dark';
   themeButton?.setAttribute('aria-pressed', String(isDark));
-  themeColorMeta?.setAttribute('content', isDark ? '#0a0f1c' : '#f8fafc');
+  const background = getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim();
+  if (background) themeColorMeta?.setAttribute('content', background);
 }
 
 themeButton?.addEventListener('click', () => {
